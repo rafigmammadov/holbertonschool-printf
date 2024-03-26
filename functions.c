@@ -86,7 +86,7 @@ int print_decimal(va_list args)
 	int n = va_arg(args, int);
 	unsigned int abs_value = (n < 0) ? (unsigned int)(-n) : (unsigned int)n;
 
-	int count = (n < 0) ? write(1, "-", 0) : 0;
+	int count = (n < 0) ? write(1, "-", 1) : 0;
 
 	if (abs_value == 0)
 	{
