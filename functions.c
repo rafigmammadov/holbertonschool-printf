@@ -33,6 +33,7 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	int count = 0;
+	int i = 0;
 
 	char *str = va_arg(args, char *);
 
@@ -41,7 +42,7 @@ int print_string(va_list args)
 		str = "(null)";
 	}
 
-	while (*str)
+	while (str[i] != '\0')
 	{
 		count += write(1, str++, 1);
 	}
@@ -64,4 +65,60 @@ int print_percent(va_list args)
 	(void)args;
 
 	return (write(1, "%", 1));
+}
+
+
+/**
+ * print_decimal - Function that prints decimal
+ *
+ * @args: The parameter that represents arguments of variadic function
+ *
+ * Return: Returns the count of decimal
+ *
+ *
+ */
+
+int print_decimal(va_list args)
+{
+	int digit_count = 1;
+	unsigned int temp;
+
+	int n = va_arg(args, int);
+	unsigned int abs_value = (n < 0) ? (unsigned int)(-n) : (unsigned int)n;
+
+	int count = (n < 0) ? write(1, "-", 0) : 0;
+
+	if (abs_value == 0)
+	{
+		count += write(1, "0", 1);
+		return (count);
+	}
+
+	for (temp = abs_value; temp > 9; temp /= 10)
+		digit_count *= 10;
+
+	while (digit_count != 0)
+	{
+		char digit_char = ((abs_value / digit_count) % 10) + '0';
+
+		count += write(1, &digit_char, 1);
+		digit_count /= 10;
+	}
+
+	return (count);
+}
+
+/**
+ * print_integer - Function that prints integer
+ *
+ * @args: The parameter that represents arguments of variadic function
+ *
+ * Return: Returns the count of decimal
+ *
+ *
+ */
+
+int print_integer(va_list args)
+{
+	return (print_decimal(args));
 }

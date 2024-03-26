@@ -24,13 +24,13 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	for (i = 0; format[i] != '\0'; ++i)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
 			if (format[i + 1] == '%')
 			{
-				write(1, "%", 1);
+				count += write(1, "%", 1);
 				++i;
 			}
 
@@ -41,16 +41,16 @@ int _printf(const char *format, ...)
 				if (fc)
 				{
 					count += fc(list);
-					++i;
+					i++;
 				}
 
 				else
-					write(1, "%", 1);
+					count += write(1, "%", 1);
 			}
 		}
 
 		else
-			write(1, &format[i], 1);
+			count += write(1, &format[i], 1);
 	}
 
 	va_end(list);
