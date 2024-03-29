@@ -7,8 +7,8 @@ This is a special C version of the printf function that we created ourselves. It
 Here's what you'll find in this project:
 
 - `main.h`: This file is like a cheat sheet for the functions we created. It tells other parts of our program what to expect and how to work together.
-- `custom_printf.c`: This is where the magic happens. We wrote our own version of printf called "_printf".
-- `print_functions.c`: This file contains functions that handle various things we might want to print, such as letters, strings and numbers.
+- `_printf.c`: This is where the magic happens. We wrote our own version of printf called "_printf".
+- `functions.c`: This file contains functions that handle various things we might want to print, such as letters, strings and numbers.
 - `get_function.c`: This file contains a smart function that determines which print function to use based on the special characters in our format string.
 - `README.md`: Hey, you're reading this now! This document explains everything about this project.
 
@@ -26,7 +26,7 @@ To use our printf, simply include main.h in your C program. You can then use `_p
 
 If you want to use our custom printf in your own project, simply compile all source files using a C compiler such as gcc. For example:
 
-gcc -Wall -Werror -Wextra -pedantic *.c -o custom_printf
+gcc -Wall -Werror -Wextra -pedantic *.c -o _printf
 
 
 ## Example
