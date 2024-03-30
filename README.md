@@ -39,7 +39,6 @@ Here's a quick example of how you might use our custom printf in your own progra
 int main(void)
 {
     _printf("Hello, %s!\n", "world");
-    _printf("The value of pi is approximately %.2f\n", 3.14159);
     _printf("Printing a single character: %c\n", 'A');
     _printf("Printing an integer: %d\n", 42);
     _printf("Printing a percent sign: %%\n");
