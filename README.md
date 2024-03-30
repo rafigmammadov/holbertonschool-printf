@@ -49,7 +49,6 @@ int main(void)
 This would print:
 
 Hello, world!
-The value of pi is approximately 3.14
 Printing a single character: A
 Printing an integer: 42
 Printing a percent sign: %
